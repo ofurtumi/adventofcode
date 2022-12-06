@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -z $2 ]; then
+    cargo run --bin "$1" < input/"$1"
+else
+    output=$(cargo run --bin "$1" < input/"$1"-test)
+    if [[ $output == $2 ]]; then
+        echo "$output == $2"
+    else
+        echo "$output != $2"
+    fi
+fi
+

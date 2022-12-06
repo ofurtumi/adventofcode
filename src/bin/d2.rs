@@ -1,12 +1,13 @@
-use std::io::{self, BufRead};
+use crate::standard::read_lines;
+pub mod standard;
 
 fn main() {
-    let stdin = io::stdin();
-    let mut lines = stdin.lock().lines();
+    let lines = read_lines();
+    
     let mut out:i32 = 0;
-    while let Some(line) = lines.next() {
+    for line in lines {
         let mut temp = 0;
-        match line.unwrap().trim() {
+        match line.trim() {
             "A X" => temp = 3,
             "A Y" => temp = 4,
             "A Z" => temp = 8,
